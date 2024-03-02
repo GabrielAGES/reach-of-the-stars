@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reach of the stars</title>
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  <div class="container">
+  <button id="dice" class="dice">Roll Dice</button>
+  <div id="board" class="board"></div>
+
+  <div class="info-container">
+    <div id="stats-container">
+      <h2>Statistics</h2>
+      <div id="player-stats"></div>
+    </div>
+    <div id="turn-info"></div>
+    <div id="player-colors"></div>
+  </div>
+
+  <!-- New input field for player names -->
+  <div id="player-names-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="player-name-inputs">
+      <!-- Input fields for player names -->
+    </div>
+    <button id="player-name-submit">Submit</button>
+  </div>
+</div>
+
+
+
+  <!-- Display question and answer choices -->
+  <div id="question-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="question"></div>
+    <div id="answers"></div>
+  </div>
+</div>
+
+</div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
