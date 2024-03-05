@@ -6,7 +6,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("https://stock.adobe.com/search?k=Snakes%20and%20Ladders"); /* Add a background image */
   background-size: cover;
   background-position: center;
 }

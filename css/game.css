@@ -305,3 +305,42 @@ body {
   text-align: center;
 }
 
+/* Winner modal styles */
+#winner-modal .modal-content {
+  background-color: rgba(100, 149, 237, 0.95); /* Light blue color */
+  color: #fff; /* White text color */
+  padding: 50px; /* Increase padding for more space */
+  border-radius: 10px; /* Increase border radius for smoother corners */
+  font-size: 28px; /* Increase font size for larger text */
+  font-weight: bold;
+  text-align: center;
+  /* Center the modal content */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Increase modal size */
+  width: 80%;
+  max-width: 600px; /* Limit maximum width */
+  height: auto; /* Let the height adjust to content */
+}
+
+
+#winner-modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#go-back-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#go-back-link:hover {
+  background-color: #f0f0f0;
+}
