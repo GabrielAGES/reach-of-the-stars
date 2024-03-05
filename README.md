@@ -20,7 +20,7 @@ The game is designed to be played in either single-player or multiplayer mode, a
 
 - **Dice Rolling Animation:** A captivating dice rolling animation adds excitement and realism to the gameplay experience.
 
-- **Player Statistics:**Players can track their progress, including the number of dice rolls, current cell position, and correct answers, providing insight into their performance.
+- **Player Statistics:** Players can track their progress, including the number of dice rolls, current cell position, and correct answers, providing insight into their performance.
 
 - **Winner Celebration:** When a player reaches the end of the board and correctly answers the final question, they are declared the winner, and a celebratory modal is displayed.
 
