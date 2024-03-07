@@ -9,38 +9,29 @@ function displayQuestionModal() {
 
 // Define a variable to keep track of the current question index
 let currentQuestionIndex;
-// Global variable to keep track of displayed question indices
-let displayedQuestionIndices = [];
+// Array to store indices of used questions
+let usedQuestionIndices = [];
 
+// Function to display question and answer choices
 function displayQuestion(topic) {
     displayQuestionModal();
 
     // Filter questions based on the selected topic
     const filteredQuestions = questions.filter(q => q.topic === topic);
 
-    // Reset displayedQuestionIndices if all questions have been displayed
-    if (displayedQuestionIndices.length === filteredQuestions.length) {
-        displayedQuestionIndices = [];
+    // If all questions have been used, reset the usedQuestionIndices array
+    if (usedQuestionIndices.length === filteredQuestions.length) {
+        usedQuestionIndices = [];
     }
 
-    // Ensure all questions are not displayed before repeating
-    if (displayedQuestionIndices.length === filteredQuestions.length) {
-        displayedQuestionIndices = [];
-    }
+    // Select a random unused question from the filtered list
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * filteredQuestions.length);
+    } while (usedQuestionIndices.includes(randomIndex));
 
-    let availableIndices = filteredQuestions.map((_, index) => index);
-    availableIndices = availableIndices.filter(index => !displayedQuestionIndices.includes(index));
-
-    // If all questions have been displayed, reset displayedQuestionIndices
-    if (availableIndices.length === 0) {
-        displayedQuestionIndices = [];
-        availableIndices = filteredQuestions.map((_, index) => index);
-    }
-
-    // Select a random question index from availableIndices
-    const randomIndex = Math.floor(Math.random() * availableIndices.length);
-    const currentQuestionIndex = availableIndices[randomIndex];
-    displayedQuestionIndices.push(currentQuestionIndex);
+    currentQuestionIndex = randomIndex;
+    usedQuestionIndices.push(randomIndex);
 
     const questionData = filteredQuestions[currentQuestionIndex];
     const { question, answers } = questionData;
