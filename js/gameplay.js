@@ -7,17 +7,41 @@ function displayQuestionModal() {
 
 }
 
+// Define a variable to keep track of the current question index
+let currentQuestionIndex;
+// Global variable to keep track of displayed question indices
+let displayedQuestionIndices = [];
 
-let currentQuestionIndex; // Define a variable to keep track of the current question index
-// Function to display question and answer choices
 function displayQuestion(topic) {
     displayQuestionModal();
 
     // Filter questions based on the selected topic
     const filteredQuestions = questions.filter(q => q.topic === topic);
 
-    // Select a random question from the filtered list
-    currentQuestionIndex = Math.floor(Math.random() * filteredQuestions.length);
+    // Reset displayedQuestionIndices if all questions have been displayed
+    if (displayedQuestionIndices.length === filteredQuestions.length) {
+        displayedQuestionIndices = [];
+    }
+
+    // Ensure all questions are not displayed before repeating
+    if (displayedQuestionIndices.length === filteredQuestions.length) {
+        displayedQuestionIndices = [];
+    }
+
+    let availableIndices = filteredQuestions.map((_, index) => index);
+    availableIndices = availableIndices.filter(index => !displayedQuestionIndices.includes(index));
+
+    // If all questions have been displayed, reset displayedQuestionIndices
+    if (availableIndices.length === 0) {
+        displayedQuestionIndices = [];
+        availableIndices = filteredQuestions.map((_, index) => index);
+    }
+
+    // Select a random question index from availableIndices
+    const randomIndex = Math.floor(Math.random() * availableIndices.length);
+    const currentQuestionIndex = availableIndices[randomIndex];
+    displayedQuestionIndices.push(currentQuestionIndex);
+
     const questionData = filteredQuestions[currentQuestionIndex];
     const { question, answers } = questionData;
 
